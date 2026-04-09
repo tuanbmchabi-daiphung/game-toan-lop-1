@@ -1,0 +1,129 @@
+<!-- @format -->
+
+<!doctype html>
+<html lang="vi">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Toán Lớp 1 - Học Mà Chơi</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div id="app">
+			<button id="home-icon-btn" class="hidden" onclick="confirmGoHome()">
+				🏠 Trang chủ
+			</button>
+
+			<div id="main-menu" class="screen">
+				<div class="header-decoration">🍎 ➕ 🔟 ➖ 🚀</div>
+				<h1>BÉ HỌC TOÁN LỚP 1</h1>
+				<div class="menu-grid">
+					<button class="menu-card practice" onclick="showPracticeMenu()">
+						<span class="icon">✍️</span>
+						<span>Luyện Tập</span>
+					</button>
+					<button class="menu-card exam" onclick="showExamMenu()">
+						<span class="icon">📝</span>
+						<span>Làm Đề Thi</span>
+					</button>
+				</div>
+				<div id="high-score-display" class="stats-badge"></div>
+			</div>
+
+			<div id="practice-menu" class="screen hidden">
+				<h2>Chọn dạng bài tập</h2>
+				<div class="option-grid">
+					<div class="opt-card color-1" onclick="startTask('practice', 1)">
+						<div class="opt-icon">🐥</div>
+						<div class="opt-info"><b>Dạng 1</b><span>Cộng trừ 0-9</span></div>
+					</div>
+					<div class="opt-card color-2" onclick="startTask('practice', 2)">
+						<div class="opt-icon">🐸</div>
+						<div class="opt-info">
+							<b>Dạng 2</b><span>Số 1 & 2 chữ số</span>
+						</div>
+					</div>
+					<div class="opt-card color-3" onclick="startTask('practice', 3)">
+						<div class="opt-icon">🦁</div>
+						<div class="opt-info"><b>Dạng 3</b><span>Số 2 chữ số</span></div>
+					</div>
+					<div class="opt-card color-4" onclick="startTask('practice', 4)">
+						<div class="opt-icon">🐘</div>
+						<div class="opt-info"><b>Dạng 4</b><span>Phép tính 3 số</span></div>
+					</div>
+				</div>
+				<button class="back-link" onclick="goHome()">← Quay lại</button>
+			</div>
+
+			<div id="exam-menu" class="screen hidden">
+				<h2>Chọn loại đề thi</h2>
+				<div class="option-grid">
+					<div class="opt-card color-1" onclick="startTask('exam', 1)">
+						<div class="opt-icon">🐥</div>
+						<div class="opt-info"><b>Đề Dạng 1</b><span>10 câu - 5p</span></div>
+					</div>
+					<div class="opt-card color-2" onclick="startTask('exam', 2)">
+						<div class="opt-icon">🐸</div>
+						<div class="opt-info"><b>Đề Dạng 2</b><span>10 câu - 5p</span></div>
+					</div>
+					<div class="opt-card color-3" onclick="startTask('exam', 3)">
+						<div class="opt-icon">🦁</div>
+						<div class="opt-info"><b>Đề Dạng 3</b><span>10 câu - 5p</span></div>
+					</div>
+					<div class="opt-card color-4" onclick="startTask('exam', 4)">
+						<div class="opt-icon">🐘</div>
+						<div class="opt-info">
+							<b>Đề Dạng 4</b><span>10 câu - 10p</span>
+						</div>
+					</div>
+					<div class="opt-card special" onclick="startTask('exam', 'mix')">
+						<div class="opt-icon">🚀</div>
+						<div class="opt-info">
+							<b>ĐỀ TỔNG HỢP</b><span>30 câu cực hay - 20p</span>
+						</div>
+					</div>
+				</div>
+				<button class="back-link" onclick="goHome()">← Quay lại</button>
+			</div>
+
+			<div id="practice-area" class="screen hidden">
+				<div id="question-card">
+					<div id="practice-feedback"></div>
+					<div class="q-row">
+						<span id="p-expression"></span> =
+						<input type="number" id="p-answer" autofocus />
+					</div>
+					<button class="check-btn" onclick="checkPracticeAnswer()">
+						Kiểm tra
+					</button>
+				</div>
+			</div>
+
+			<div id="exam-area" class="screen hidden">
+				<div class="exam-header">
+					<div id="exam-timer">00:00</div>
+					<div id="exam-progress">0/0</div>
+				</div>
+				<div id="exam-questions-list"></div>
+				<button class="submit-btn" onclick="confirmSubmit()">
+					Nộp bài thi
+				</button>
+			</div>
+
+			<div id="result-screen" class="screen hidden">
+				<h2 id="result-title">Kết quả</h2>
+				<div id="result-stats" class="stats-badge"></div>
+				<div id="review-container"></div>
+				<button
+					class="menu-card practice"
+					style="width: 220px; margin: 20px auto; padding: 15px"
+					onclick="goHome()"
+				>
+					Làm bài khác
+				</button>
+			</div>
+		</div>
+
+		<script src="script.js"></script>
+	</body>
+</html>
